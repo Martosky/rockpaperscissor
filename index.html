@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rps</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h1>Let's play Rock Paper Scissor</h1>
+    <main>
     <details class="rule-container">
         <summary>How to play</summary>
         <p>Choose one of the following options:</p>
@@ -22,9 +24,27 @@
             <li>Paper beats Rock</li>
         </ul>
     </details>
+
     <div class="score-container">
-        <strong>PLayer Score:<span class="score" id="player-score">0</span></strong>
-        <strong>COmputer Score:<span class="score" id="computer-score">0</span></strong>
+        <strong>Player Score:<span class="score" id="player-score">0</span></strong>
+        <strong>Computer Score:<span class="score" id="computer-score">0</span></strong>
     </div>
+
+    <section class="options-container">
+        <h2>Choose your option</h2>
+        <div class="btn-container">
+          <button class="btn" id="rock-btn">Rock</button>
+          <button class="btn" id="paper-btn">Paper</button>
+          <button class="btn" id="scissor-btn">Scissor</button>
+        </div>
+    </section>
+
+    <div class="result-container">
+        <p id="result-msg"></p>
+        <p id="winner-msg"></p>
+        <button class="btn" id="reset-btn">Play again!</button>
+    </div>
+</main>
+<script src="./script.js"></script>
 </body>
 </html>
