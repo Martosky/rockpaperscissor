@@ -12,7 +12,7 @@ const scissorBtn = document.getElementById("scissor-btn");
 const playerScore = 0;
 const computerScore = 0;
 
-const rendomCOmputerChoice = () => {
+const rendomComputerChoice = () => {
     const options = ["rock", "paper", "scissor"];
     const ramdomNum = Math.floor(Math.random()* options.length)
     return options[ramdomNum];
@@ -25,7 +25,7 @@ const gameRules = (player, computer) => {
 }
 
  const playGame = (playerChoice) => {
-    const computerChoice = rendomCOmputerChoice();
+    const computerChoice = rendomComputerChoice();
     if (gameRules(playerChoice, computerChoice)){
         playerScore += 1;
         return `You win. ${playerChoice} beats ${computerChoice}`
@@ -49,3 +49,18 @@ const gameRules = (player, computer) => {
       resetBtn.style.display = "block";
     }
  }
+
+ resetBtn.addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    resultMsg.innerText = "";
+    winnerMsg.innerText = "";
+    playerScoreSpan.innerText = playerScore;
+    computerScoreSpan.innerText = computerScore;
+    optionsContainer.style.display = 'block';
+    resetBtn.style.display = "none";
+ });
+
+ rockBtn.addEventListener("click", () => gameResult("rock"));
+ paperBtn.addEventListener("click", () => gameResult("paper"));
+ scissorBtn.addEventListener("click", () => gameResult("scissor"));
