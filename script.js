@@ -3,15 +3,17 @@ const resultMsg = document.getElementById("result-msg");
 const winnerMsg = document.getElementById("winner-msg");
 const playerScoreSpan = document.getElementById("player-score");
 const computerScoreSpan = document.getElementById("computer-score");
+const optionsContainer = document.getElementById("options-container");
 const rockBtn = document.getElementById("rock-btn");
 const paperBtn = document.getElementById("paper-btn");
 const scissorBtn = document.getElementById("scissor-btn");
-const options = ["rock", "paper", "scissor"];
+
 
 const playerScore = 0;
 const computerScore = 0;
 
 const rendomCOmputerChoice = () => {
+    const options = ["rock", "paper", "scissor"];
     const ramdomNum = Math.floor(Math.random()* options.length)
     return options[ramdomNum];
  }
@@ -36,10 +38,14 @@ const gameRules = (player, computer) => {
     }
  }
 
- const gameResult = () => {
-    if(playerScore === 3){
-      resultMsg.innerText = playGame()
+ const gameResult = (userOption) => {
+    resultMsg.innerText = playGame(userOption)
       playerScoreSpan.innerText = playerScore;
       computerScoreSpan.innerText = computerScore;
+
+    if(playerScore === 3 || computerScore === 3) {
+      winnerMsg.innerText = `${playerScore === 3 ? "Player" : "Computer!"} has won the game!`;
+      optionsContainer.style.display = 'none';
+      resetBtn.style.display = "block";
     }
  }
